@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: '../versions.gradle'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.kotlin_stdlib_jdk7
+
+    testImplementation deps.test_junit
+    testImplementation deps.kotlin_test_junit
+    androidTestImplementation deps.androidx_test_ext_junit
+    androidTestImplementation deps.androidx_test_espresso_core
+
+    implementation deps.androidx_appcompat
+    implementation deps.androidx_annotation
+    implementation deps.androidx_lifecycle_extensions
+
+    api deps.androidx_room_runtime
+    kapt deps.androidx_room_compiler
+    implementation deps.androidx_room_rxjava2
+    androidTestImplementation deps.androidx_room_testing
+
+    implementation deps.rxjava2
+
+    implementation deps.koin_android
+
+    implementation project(':core-common')
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == 'androidx.lifecycle' && details.requested.name == 'lifecycle-extensions') {
+            details.useVersion "2.0.0"
+        }
+    }
+}

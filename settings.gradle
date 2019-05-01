@@ -1,0 +1,1 @@
+include ':app', ':core-common', ':feature-placelist', ':feature-placedetails', ':core-data'
