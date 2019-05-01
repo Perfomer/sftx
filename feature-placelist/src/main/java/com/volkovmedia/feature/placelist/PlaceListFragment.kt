@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
+import com.jakewharton.rxbinding3.swiperefreshlayout.refreshes
 import com.volkovmedia.core.common.mvi.MviFragment
 import com.volkovmedia.core.common.util.createSnackbarWithAction
 import com.volkovmedia.core.common.util.init
@@ -14,6 +15,8 @@ import com.volkovmedia.feature.placelist.mvi.PlaceListState
 import com.volkovmedia.feature.placelist.mvi.PlaceListSubscription
 import com.volkovmedia.feature.placelist.recycler.PlaceListAdapter
 import com.volkovmedia.feature.placelist.recycler.PlaceListItemTouchHelperCallback
+import io.reactivex.rxkotlin.plusAssign
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.placelist_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -28,6 +31,7 @@ internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, 
 
     private val adapter = PlaceListAdapter(::onPlaceClick)
 
+
     override fun provideViewModel() = getViewModel<PlaceListViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +44,8 @@ internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, 
 
         placelist_toolbar.attachToActivity(enableArrowUp = false)
 
-        placelist_swiperefresh.setOnRefreshListener { postIntent(PlaceListIntent.RefreshWithNetwork) }
+        disposable += placelist_swiperefresh.refreshes()
+            .subscribeBy { postIntent(PlaceListIntent.RefreshWithNetwork) }
     }
 
     override fun render(state: PlaceListState) {

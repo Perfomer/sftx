@@ -37,7 +37,8 @@ versions.koin = '1.0.2'
 versions.rxjava2 = "2.2.3"
 versions.rxjava2_rxkotlin = "2.3.0"
 versions.rxjava2_rxandroid = "2.1.0"
-versions.rxjava2_rxbinding = "3.0.0-alpha2"
+
+versions.rxbinding = "3.0.0-alpha2"
 
 versions.okhttp3 = "3.11.0"
 versions.retrofit = "2.5.0"
@@ -117,7 +118,11 @@ deps.koin_androidx_viewmodel = "org.koin:koin-androidx-viewmodel:$versions.koin"
 deps.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
 deps.rxjava2_rxkotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rxjava2_rxkotlin"
 deps.rxjava2_rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxjava2_rxandroid"
-deps.rxjava2_rxbinding = "com.jakewharton.rxbinding3:rxbinding:$versions.rxjava2_rxbinding"
+
+// RxBinding
+deps.rxbinding = "com.jakewharton.rxbinding3:rxbinding:$versions.rxbinding"
+deps.rxbinding_swiperefreshlayout = "com.jakewharton.rxbinding3:rxbinding-swiperefreshlayout:$versions.rxbinding"
+deps.rxbinding_appcompat = "com.jakewharton.rxbinding3:rxbinding-appcompat:$versions.rxbinding"
 
 // Http
 deps.okhttp3 = "com.squareup.okhttp3:okhttp:$versions.okhttp3"

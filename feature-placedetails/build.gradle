@@ -50,10 +50,15 @@ dependencies {
     implementation deps.androidx_fragment_ktx
     implementation deps.androidx_core_ktx
 
+    implementation deps.circleimageview
+
     implementation deps.rxjava2
     implementation deps.rxjava2_rxkotlin
     implementation deps.rxjava2_rxandroid
-    implementation deps.rxjava2_rxbinding
+
+    implementation deps.rxbinding
+    implementation deps.rxbinding_swiperefreshlayout
+    implementation deps.rxbinding_appcompat
 
     implementation deps.koin_android
     implementation deps.koin_androidx_viewmodel
