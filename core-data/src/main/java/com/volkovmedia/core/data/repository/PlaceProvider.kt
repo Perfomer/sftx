@@ -15,7 +15,8 @@ internal class PlaceProvider(
 ) : PlaceRepository {
 
     override fun getPlaces(filterQuery: String): Observable<List<Place>> {
-        return dao.getPlaces(filterQuery)
+        return if (filterQuery.isBlank()) dao.getPlaces()
+        else dao.getPlaces(filterQuery)
     }
 
     override fun getPlace(id: String): Single<Place> {

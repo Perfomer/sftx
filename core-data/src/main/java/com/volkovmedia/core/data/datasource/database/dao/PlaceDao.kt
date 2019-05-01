@@ -18,6 +18,9 @@ internal interface PlaceDao : BaseDao<Place> {
     )
     fun getPlaces(filterQuery: String): Observable<List<Place>>
 
+    @Query("SELECT * FROM Place ORDER BY time")
+    fun getPlaces(): Observable<List<Place>>
+
     @Query("SELECT * FROM Place WHERE id = :id")
     fun getPlace(id: String): Single<Place>
 
