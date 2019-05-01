@@ -42,7 +42,7 @@ dependencies {
     androidTestImplementation deps.androidx_test_ext_junit
     androidTestImplementation deps.androidx_test_espresso_core
 
-    implementation deps.facebook_stetho
+    implementation deps.cicerone
 
     implementation deps.androidx_appcompat
     implementation deps.androidx_material
@@ -61,4 +61,7 @@ dependencies {
 
     implementation project(':core-common')
     implementation project(':core-data')
+
+    implementation project(':feature-placelist')
+    implementation project(':feature-placedetails')
 }
