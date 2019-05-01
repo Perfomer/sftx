@@ -26,6 +26,13 @@ interface PlaceRepository {
     fun getPlace(id: String): Single<Place>
 
     /**
+     * Insert [Place]
+     *
+     * @param place place entity for inserting
+     */
+    fun insertPlace(place: Place): Completable
+
+    /**
      * Remove [Place]
      *
      * @param place place entity for removing

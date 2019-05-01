@@ -22,6 +22,10 @@ internal class PlaceProvider(
         return dao.getPlace(id)
     }
 
+    override fun insertPlace(place: Place): Completable {
+        return Completable.fromAction { dao.insert(place) }
+    }
+
     override fun removePlace(place: Place): Completable {
         return Completable.fromAction { dao.remove(place) }
     }

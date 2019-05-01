@@ -16,8 +16,8 @@ fun Resources.getColorCompat(@ColorRes id: Int): Int {
     return ResourcesCompat.getColor(this, id, null)
 }
 
-fun Resources.getDrawableCompat(@DrawableRes id: Int): Drawable? {
-    return ResourcesCompat.getDrawable(this, id, null)
+fun Resources.getDrawableCompat(@DrawableRes id: Int): Drawable {
+    return ResourcesCompat.getDrawable(this, id, null)!!
 }
 
 fun Context.toast(@StringRes stringId: Int, duration: Int = Toast.LENGTH_LONG) {

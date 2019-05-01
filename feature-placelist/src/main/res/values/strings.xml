@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">featureplacelist</string>
+    <string name="placelist_places">Places</string>
+    <string name="placelist_empty">The list is empty.</string>
+
+    <string name="placelist_refreshingerror">Refreshing error. Please try again.</string>
+    <string name="placelist_tryagain">Try again</string>
+
+    <string name="placelist_placedeleted">Place %s deleted</string>
 </resources>
