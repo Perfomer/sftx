@@ -2,6 +2,7 @@ package com.volkovmedia.sftx
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.volkovmedia.feature.placelist.PlaceListNavigator
 import com.volkovmedia.sftx.navigation.ScreenDestination
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -9,7 +10,7 @@ import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
-class SftxActivity : AppCompatActivity() {
+class SftxActivity : AppCompatActivity(), PlaceListNavigator {
 
     private val navigatorHolder by inject<NavigatorHolder>()
 
@@ -17,11 +18,12 @@ class SftxActivity : AppCompatActivity() {
 
     private val router by inject<Router>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sftx_activity)
 
-        router.newRootScreen(ScreenDestination.PlaceList())
+        router.newRootScreen(ScreenDestination.PlaceList)
     }
 
     override fun onResumeFragments() {
@@ -39,5 +41,8 @@ class SftxActivity : AppCompatActivity() {
     override fun onBackPressed() {
         router.exit()
     }
+
+
+    override fun navigateToPlaceDetails(id: String) = router.navigateTo(ScreenDestination.PlaceDetails(id))
 
 }

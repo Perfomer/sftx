@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
-import com.google.android.material.snackbar.Snackbar
-import com.jakewharton.rxbinding3.appcompat.queryTextChangeEvents
 import com.jakewharton.rxbinding3.appcompat.queryTextChanges
 import com.jakewharton.rxbinding3.swiperefreshlayout.refreshes
 import com.volkovmedia.core.common.mvi.MviFragment
@@ -60,7 +57,7 @@ internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        val searchView = menu.findSearchView(R.id.contacts_list_search)
+        val searchView = menu.findSearchView(R.id.placelist_search)
 
         disposable += searchView.queryTextChanges()
             .debounce(500, TimeUnit.MILLISECONDS)

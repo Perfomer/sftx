@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">featureplacedetails</string>
+
+    <string name="placedetails_place">Place</string>
+
+    <string name="placedetails_delete">Delete</string>
+
+    <string name="placedetails_placedeleted">Place %s deleted</string>
+
+    <string name="placedetails_unexpectederror">Unexpected error. Can\'t load place for showing.</string>
+
+    <string name="placedetails_stubdescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae gravida quam, a condimentum turpis. Ut volutpat, enim eget condimentum dignissim, nisl risus vestibulum mi, id sagittis sapien est nec ligula. Maecenas justo erat, rhoncus vitae condimentum vitae, pulvinar in orci. Proin eget ex vitae odio laoreet eleifend eu et ante. Quisque non consequat metus. Mauris pellentesque libero a urna porttitor varius. Praesent tempor, urna sed hendrerit ultricies, libero sapien bibendum felis, sed pretium nibh metus vel nisi. Curabitur sapien nunc, lacinia quis nunc in, elementum placerat dui.
+
+Curabitur fermentum sem vel nulla pellentesque, vitae faucibus felis consectetur. Vivamus varius porta ipsum, ut sollicitudin metus pellentesque eu. Proin consequat fringilla erat sit amet blandit. Nullam et risus sit amet arcu interdum condimentum. Cras eu mauris ac ante lobortis semper. Nunc lacinia enim vel finibus dignissim. Sed varius pharetra blandit. Nam et molestie ligula. Praesent quis enim varius, vehicula nisi id, dictum tortor. Curabitur lorem erat, facilisis et commodo id, cursus non mi. Proin luctus, massa et hendrerit sollicitudin, tellus nulla lacinia risus, id lacinia orci dolor a elit. Curabitur vel ipsum nisi.
+
+Ut volutpat lacus nec arcu facilisis venenatis eget vel diam. Nullam at est sit amet massa cursus accumsan eu a elit. Vestibulum interdum orci a bibendum dapibus. Integer pulvinar massa quis nibh molestie, eu fringilla nisl rutrum. Maecenas porttitor, ligula nec dapibus tincidunt, libero odio porta nunc, sit amet malesuada lectus ipsum et justo. Donec tincidunt purus eu magna elementum, dignissim congue erat volutpat. Donec ultricies eros eu lorem lobortis maximus. Etiam ut leo malesuada dui fringilla maximus nec eget urna. Mauris a nisi laoreet, rutrum tellus a, condimentum nisi. Maecenas ullamcorper eget sapien vitae rhoncus. In et cursus dolor, vitae malesuada orci. Duis a quam lorem. In nisi justo, sodales eget neque eu, placerat aliquet nulla.
+
+Nam lacinia sollicitudin arcu. Quisque pulvinar quam vitae blandit interdum. Cras eu ante at ante pulvinar imperdiet ac congue eros. Maecenas eu vestibulum enim, et egestas dui. Sed malesuada accumsan augue nec ornare. Nunc risus purus, feugiat ut venenatis vel, sollicitudin in leo. Quisque sed sem non mauris tristique auctor. Proin eget mi at purus lacinia lobortis eget sit amet ligula. Integer placerat metus iaculis ultrices sodales.
+
+Suspendisse potenti. Cras libero justo, tempor vel mattis sed, porta nec ante. Curabitur malesuada quis mauris sit amet dignissim. Proin commodo, erat ac posuere dapibus, nibh libero commodo nibh, fringilla euismod turpis magna eget libero. Pellentesque sapien mi, aliquet at faucibus sit amet, viverra nec lectus. Suspendisse consequat erat id diam euismod, eu scelerisque massa maximus. Quisque porttitor, ipsum id dignissim rhoncus, quam libero pharetra mi, in tempor leo metus nec purus. Praesent feugiat massa vel diam volutpat rutrum accumsan rhoncus eros. Aliquam quis viverra turpis. Duis consectetur, lectus in facilisis egestas, ex massa eleifend odio, eu placerat neque orci et tellus. Quisque id urna sit amet nulla euismod tempor sed a massa. Aliquam sed aliquam libero. Etiam sed bibendum mi.</string>
+
 </resources>
