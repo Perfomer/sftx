@@ -13,6 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "ROOT_URL", "\"https://raw.githubusercontent.com/Softex-Group/task-mobile/master/\""
     }
 
     compileOptions {
@@ -47,7 +49,13 @@ dependencies {
     implementation deps.androidx_room_rxjava2
     androidTestImplementation deps.androidx_room_testing
 
+    implementation deps.gson
+    implementation deps.retrofit
+    implementation deps.retrofit_adapter_rxjava2
+    implementation deps.retrofit_converter_gson
+
     implementation deps.rxjava2
+    implementation deps.rxjava2_rxkotlin
 
     implementation deps.koin_android
 
