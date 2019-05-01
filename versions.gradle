@@ -61,6 +61,7 @@ def deps = [:]
 deps.test_junit = "junit:junit:$versions.test_junit"
 deps.test_robolectric = "org.robolectric:robolectric:$versions.test_robolectric"
 deps.test_mockito = "org.mockito:mockito-core:$versions.test_mockito"
+deps.test_mockito_android = "org.mockito:mockito-android:$versions.test_mockito"
 
 // :: AndroidX
 deps.androidx_test_runner = "androidx.test:runner:$versions.androidx_test"

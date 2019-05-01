@@ -37,6 +37,7 @@ dependencies {
 
     testImplementation deps.test_junit
     testImplementation deps.kotlin_test_junit
+    androidTestImplementation deps.test_mockito_android
     androidTestImplementation deps.androidx_test_ext_junit
     androidTestImplementation deps.androidx_test_espresso_core
 
