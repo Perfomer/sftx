@@ -9,17 +9,8 @@ import io.reactivex.Single
 @Dao
 internal interface PlaceDao : BaseDao<Place> {
 
-    @Query(
-        """
-        SELECT * FROM Place
-        WHERE name LIKE :filterQuery
-        ORDER BY time
-        """
-    )
+    @Query("SELECT * FROM Place WHERE name LIKE :filterQuery ORDER BY time")
     fun getPlaces(filterQuery: String): Observable<List<Place>>
-
-    @Query("SELECT * FROM Place ORDER BY time")
-    fun getPlaces(): Observable<List<Place>>
 
     @Query("SELECT * FROM Place WHERE id = :id")
     fun getPlace(id: String): Single<Place>
