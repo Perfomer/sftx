@@ -2,12 +2,18 @@ package com.volkovmedia.feature.placelist
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
+import com.jakewharton.rxbinding3.appcompat.queryTextChangeEvents
+import com.jakewharton.rxbinding3.appcompat.queryTextChanges
 import com.jakewharton.rxbinding3.swiperefreshlayout.refreshes
 import com.volkovmedia.core.common.mvi.MviFragment
 import com.volkovmedia.core.common.util.createSnackbarWithAction
+import com.volkovmedia.core.common.util.findSearchView
 import com.volkovmedia.core.common.util.init
 import com.volkovmedia.core.data.datasource.database.entity.Place
 import com.volkovmedia.feature.placelist.mvi.PlaceListIntent
@@ -19,12 +25,15 @@ import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.placelist_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import java.util.concurrent.TimeUnit
 
 internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, PlaceListSubscription>(
     initialIntent = PlaceListIntent.LoadData("")
 ) {
 
     override val layoutResource = R.layout.placelist_fragment
+
+    override val menuResource = R.menu.placelist_menu
 
 
     private val navigator by lazy { activity as PlaceListNavigator }
@@ -46,6 +55,16 @@ internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, 
 
         disposable += placelist_swiperefresh.refreshes()
             .subscribeBy { postIntent(PlaceListIntent.RefreshWithNetwork) }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        val searchView = menu.findSearchView(R.id.contacts_list_search)
+
+        disposable += searchView.queryTextChanges()
+            .debounce(500, TimeUnit.MILLISECONDS)
+            .subscribeBy { postIntent(PlaceListIntent.LoadData(it.toString())) }
     }
 
     override fun render(state: PlaceListState) {
