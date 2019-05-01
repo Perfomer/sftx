@@ -14,8 +14,8 @@ var Snackbar.isVisible: Boolean
     }
 
 fun View.createSnackbarWithAction(
-    @StringRes message: Int,
-    @StringRes actionText: Int,
+    message: String,
+    actionText: String,
     @ColorRes actionTextColor: Int = R.color.accent,
     length: Int = Snackbar.LENGTH_LONG,
     onActionClick: () -> Unit

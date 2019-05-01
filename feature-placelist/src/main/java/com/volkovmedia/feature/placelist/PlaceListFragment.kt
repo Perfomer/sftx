@@ -38,7 +38,7 @@ internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, 
             itemTouchHelper = PlaceListItemTouchHelperCallback(adapter, ::onPlaceSwiped)
         )
 
-        placelist_toolbar.attachToActivity()
+        placelist_toolbar.attachToActivity(enableArrowUp = false)
 
         placelist_swiperefresh.setOnRefreshListener { postIntent(PlaceListIntent.RefreshWithNetwork) }
     }
@@ -57,18 +57,20 @@ internal class PlaceListFragment : MviFragment<PlaceListIntent, PlaceListState, 
         when (subscription) {
             is PlaceListSubscription.NetworkRefreshingFailed -> {
                 view?.createSnackbarWithAction(
-                    message = R.string.placelist_refreshingerror,
-                    actionText = R.string.placelist_tryagain,
+                    message = getString(R.string.placelist_refreshingerror),
+                    actionText = getString(R.string.placelist_tryagain),
                     actionTextColor = R.color.red,
                     onActionClick = { postIntent(PlaceListIntent.RefreshWithNetwork) }
                 )?.show()
             }
 
             is PlaceListSubscription.PlaceDeleted -> {
+                val place = subscription.place
+
                 view?.createSnackbarWithAction(
-                    message = R.string.placelist_placedeleted,
-                    actionText = android.R.string.cancel,
-                    onActionClick = { postIntent(PlaceListIntent.AddPlace(subscription.place)) }
+                    message = getString(R.string.placelist_placedeleted, place.name),
+                    actionText = getString(android.R.string.cancel),
+                    onActionClick = { postIntent(PlaceListIntent.AddPlace(place)) }
                 )?.show()
             }
         }

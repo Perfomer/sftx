@@ -52,9 +52,9 @@ abstract class BaseFragment : Fragment() {
         return true
     }
 
-    protected fun Toolbar.attachToActivity() {
+    protected fun Toolbar.attachToActivity(enableArrowUp: Boolean = true) {
         appCompatActivity.setSupportActionBar(this)
-        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(enableArrowUp)
     }
 
     protected companion object {

@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:foreground="?selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
+        app:cardElevation="2dp"
         app:cardUseCompatPadding="false"
         tools:background="@android:color/white">
 
@@ -26,17 +27,17 @@
                 android:id="@+id/placelist_item_image"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:civ_circle_background_color="@color/grey_light"
+                android:background="@drawable/bg_circle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <ImageView
                 android:id="@+id/placelist_item_noimage"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_image"
-                android:tint="@android:color/white"
+                android:tint="@color/grey_medium"
                 app:layout_constraintBottom_toBottomOf="@+id/placelist_item_image"
                 app:layout_constraintEnd_toEndOf="@+id/placelist_item_image"
                 app:layout_constraintStart_toStartOf="@+id/placelist_item_image"
@@ -63,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textColor="@color/text_secondary"
                 app:layout_constraintBottom_toBottomOf="@+id/placelist_item_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/placelist_item_name"
