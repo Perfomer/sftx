@@ -38,6 +38,7 @@ internal class PlaceListViewModel(
     override fun reduce(oldState: PlaceListState, action: PlaceListAction) = when (action) {
         PlaceListAction.RefreshingWithNetworkStarted -> oldState.copy(isLoading = true)
         PlaceListAction.RefreshingWithNetworkSucceed -> oldState.copy(isLoading = false)
+        is PlaceListAction.RefreshingWithNetworkFailed -> oldState.copy(isLoading = false)
         is PlaceListAction.DataReceived -> oldState.copy(payload = action.payload)
         else -> super.reduce(oldState, action)
     }
