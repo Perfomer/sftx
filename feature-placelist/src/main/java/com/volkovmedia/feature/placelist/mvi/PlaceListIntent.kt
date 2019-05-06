@@ -7,7 +7,7 @@ internal sealed class PlaceListIntent {
     /**
      * Refresh data with Network
      */
-    object RefreshWithNetwork: PlaceListIntent()
+    object RefreshWithNetwork : PlaceListIntent()
 
     /**
      * Request data from local database
@@ -21,13 +21,13 @@ internal sealed class PlaceListIntent {
      *
      * @property place place should be deleted
      */
-    class DeletePlace(val place: Place): PlaceListIntent()
+    class DeletePlace(val place: Place) : PlaceListIntent()
 
     /**
      * Add place
      *
      * @property place place should be added
      */
-    class AddPlace(val place: Place): PlaceListIntent()
+    class AddPlace(val place: Place) : PlaceListIntent()
 
 }

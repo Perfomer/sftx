@@ -25,6 +25,7 @@ internal class PlaceListViewModel(
             .onErrorReturn { PlaceListAction.RefreshingWithNetworkFailed(it) }
 
         is PlaceListIntent.LoadData -> repository.getPlaces(intent.filterQuery)
+            .asFlowSource(PlaceListIntent.LoadData::class)
             .map<PlaceListAction> { PlaceListAction.DataReceived(it) }
 
         is PlaceListIntent.DeletePlace -> repository.removePlace(intent.place)

@@ -38,8 +38,8 @@ abstract class BaseFragment : Fragment() {
         menuResource?.let { inflater.inflate(it, menu) }
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroyView() {
+        super.onDestroyView()
         disposable.clear()
     }
 

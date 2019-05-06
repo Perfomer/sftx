@@ -9,8 +9,6 @@ internal class PlaceListAdapter(
     private val onClick: (Place) -> Unit
 ) : BindableEntityAdapter<Place, PlaceViewHolder>() {
 
-
-
     override fun onLayoutRequested(viewType: Int) = R.layout.placelist_item
 
     override fun onCreateViewHolder(view: View, viewType: Int) = PlaceViewHolder(view, ::onClick)
