@@ -4,6 +4,7 @@ import com.volkovmedia.core.common.util.toObservable
 import com.volkovmedia.core.common.view.BaseFragment
 import io.reactivex.ObservableSource
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -19,10 +20,12 @@ abstract class MviFragment<Intent : Any, State : Any, Subscription : Any>(
 
     private val viewModel by lazy { provideViewModel() }
 
+    private val mviDisposable by lazy { CompositeDisposable() }
+
     override fun onStart() {
         super.onStart()
 
-        disposable.addAll(
+        mviDisposable.addAll(
             viewModel.state bindTo ::onStateReceived,
             viewModel.subscription bindTo ::onSubscriptionReceived
         )
@@ -31,6 +34,11 @@ abstract class MviFragment<Intent : Any, State : Any, Subscription : Any>(
     override fun onResume() {
         super.onResume()
         initialIntent?.let(::postIntent)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mviDisposable.clear()
     }
 
     protected abstract fun provideViewModel(): MviViewModel<Intent, *, State, Subscription>
