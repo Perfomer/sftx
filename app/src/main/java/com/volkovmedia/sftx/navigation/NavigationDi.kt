@@ -9,7 +9,7 @@ import ru.terrakok.cicerone.android.support.SupportAppNavigator
 typealias CiceroneRouter = Cicerone<Router>
 
 val navigationModule = module {
-    single { (activity: FragmentActivity, containerId: Int) ->
+    factory { (activity: FragmentActivity, containerId: Int) ->
         SupportAppNavigator(activity, containerId)
     }
 
