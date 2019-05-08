@@ -7,6 +7,7 @@ versions.build_target_sdk = 28
 versions.test_junit = "4.12"
 versions.test_robolectric = "3.8"
 versions.test_mockito = "2.21.0"
+versions.test_mockk = "1.9.3"
 
 versions.androidx_test = "1.1.0"
 versions.androidx_test_ext_junit = "1.1.0"
@@ -62,6 +63,7 @@ deps.test_junit = "junit:junit:$versions.test_junit"
 deps.test_robolectric = "org.robolectric:robolectric:$versions.test_robolectric"
 deps.test_mockito = "org.mockito:mockito-core:$versions.test_mockito"
 deps.test_mockito_android = "org.mockito:mockito-android:$versions.test_mockito"
+deps.test_mockk = "io.mockk:mockk:$versions.test_mockk"
 
 // :: AndroidX
 deps.androidx_test_runner = "androidx.test:runner:$versions.androidx_test"
