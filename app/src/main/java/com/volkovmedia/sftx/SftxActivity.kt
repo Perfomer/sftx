@@ -23,7 +23,9 @@ class SftxActivity : AppCompatActivity(), PlaceListNavigator {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sftx_activity)
 
-        router.newRootScreen(ScreenDestination.PlaceList)
+        if (savedInstanceState == null) {
+            router.newRootScreen(ScreenDestination.PlaceList)
+        }
     }
 
     override fun onResumeFragments() {
